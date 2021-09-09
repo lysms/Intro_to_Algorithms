@@ -50,14 +50,14 @@ def main():
         print("fib2(", number, ") -> ", value, " = ", timer, " seconds", sep="")
 
     ############################################ PART 2 ###########################################
-    # print("\nIterative algorithm for part 2")
-    # for number in n_2:
-    #     value = fib2(number)
-    #     timer = timeit.timeit(
-    #         "fib2(" + str(number) + ")", "from __main__ import fib2", number=1
-    #     )
-    #     fib2_time_part2.append(timer)
-    #     print("fib2(", number, ")", "=", timer, "seconds")
+    print("\nIterative algorithm for part 2")
+    for number in n_2:
+        value = fib2(number)
+        timer = timeit.timeit(
+            "fib2(" + str(number) + ")", "from __main__ import fib2", number=1
+        )
+        fib2_time_part2.append(timer)
+        print("fib2(", number, ")", "=", timer, "seconds")
 
     plt.plot(n, fib1_time_part1, "r")
     # plt.plot(n, fib2_time_part1, "b")
