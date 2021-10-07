@@ -127,7 +127,7 @@ if __name__ == "__main__":
         488881,
     ]
     print("\nmodexp function: ")
-    print("3 ^  100 mod 5 is ", modexp(3, 100, 5))
+    print("3 ^  100 mod 5 is ", modexp(8, 86, 29))
     print("55 ^  10000 mod 45 is ", modexp(55, 10000, 45))
     print("3333 ^  4444 mod 5555 is ", modexp(3333, 444, 5555), "\n")
 
