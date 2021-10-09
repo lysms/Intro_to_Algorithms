@@ -1,3 +1,4 @@
+# To its own adjancent vertices. Never jump to other regions.
 def explore(G, v):
     visited[v] = True
     for i in range(0, len(G[v])):
@@ -8,6 +9,7 @@ def explore(G, v):
     node.append(v)
 
 
+# DFS is restart the procedure elsewhere, at some vertex that has not yet been visited.
 def dfs(G):
     clock = 1
     for v in range(0, len(G)):
@@ -23,11 +25,11 @@ def construct_graph(G):
             Graph[G[i][j] - 1].append(i + 1)
 
 
-filename = input("Enter the file that you want to read ==> ")
-file = open(filename, "r")
+# filename = input("Enter the file that you want to read ==> ")
+file = open("lab5_1.txt", "r")
 input = []
 for line in file:
-    temp = line.rstrip("\n").split(" ")
+    temp = line.rstrip("\n").split()
     input.append(temp)
 
 adj_list = []
@@ -41,23 +43,28 @@ for i in range(0, len(input)):
         Graph.append([])
     adj_list[int(input[i][0]) - 1].append(int(input[i][1]))
 
-# print(G)
-# print("The Adjcency List is:", adj_list)
+print(input)
+print("The Adjcency List is:", adj_list)
 visited = len(adj_list) * [False]
-pre = len(adj_list) * [0]
-post = len(adj_list) * [0]
 
 construct_graph(adj_list)
+print()
+print(Graph)
+
 
 dfs(Graph)
 
-# print(node)
+print(node)
 node.reverse()
 new_node = node[:]
+print("New node: ")
+print(new_node)
 
 visited = len(adj_list) * [False]
 checked = len(adj_list) * [False]
 total = 0
+
+print(checked)
 
 # Strongly Connected Component
 for i in range(0, len(adj_list)):
@@ -72,6 +79,9 @@ for i in range(0, len(adj_list)):
             checked[j] = True
             total += 1
     connected.append(temp)
+
+print()
+print(connected)
 
 
 for i in connected:
