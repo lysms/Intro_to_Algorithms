@@ -26,16 +26,17 @@ def dijkstra(G, l, s):
     shortest_paths = []
     for i in range(1, len(prev)):
         tmp = prev[i]
-        print(tmp)
+        # print(tmp)
         l = dist[i]
         small_path = [l, [i]]
-        print(small_path)
+        # print(small_path)
         while tmp != None:
             # print(tmp)
             if tmp != None:
                 small_path[1].append(tmp)
             tmp = prev[tmp]
         small_path[1].reverse()
+        print(small_path)
         shortest_paths.append(small_path)
     return shortest_paths
 
