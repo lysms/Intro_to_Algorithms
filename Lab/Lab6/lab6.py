@@ -14,10 +14,11 @@ def dijkstra(G, l, s):
     while len(H.keys()) != 0:
 
         u = H.popitem()
-        print("This is value of u", u)
-        print(G[u[0]])
+        # print("This is value of u", u)
+        # print(G[u[0]])
         for i in range(len(G[u[0]])):
             # print(G[u[0][i]])
+            # Go over the graph to check the length, and assign it into the heapdict.
             if dist[G[u[0]][i]] > dist[u[0]] + l[u[0]][i]:
                 dist[G[u[0]][i]] = dist[u[0]] + l[u[0]][i]
                 prev[G[u[0]][i]] = u[0]
