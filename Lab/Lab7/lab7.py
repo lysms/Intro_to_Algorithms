@@ -16,16 +16,21 @@ E = [
     ("H-I", 11),
 ]
 U = ["A", "D", "F"]
-# U = ["A", "F", "G", "C", "H"]
+U = ["A", "F", "G", "C", "H"]
+U = ["A", "F", "G"]
 
 
-def prim(Graph, g):
+def prim(Graph):
     num_nodes = len(Graph)
     visited = len(Graph) * [False]
+    g = []
+    for i in U:
+        g.append(V.index(i))
     num_edges = 0
     visited[0] = True
     max_v = max(g)
     marked = len(g) * [False]
+
     total = 0
     while num_edges < num_nodes - 1:
         success = False
@@ -67,7 +72,7 @@ def prim(Graph, g):
             total += int(Graph[a][b])
         visited[b] = True
         num_edges += 1
-    print("The toal weight is:", total, "\n")
+    print("The toal weights is:", total, "\n")
 
 
 if __name__ == "__main__":
@@ -91,10 +96,6 @@ if __name__ == "__main__":
         else:
             Graph[v].append(u)
 
-    g = []
-    for i in U:
-        g.append(V.index(i))
-
     Graph = [
         [0, 10, 12, 0, 0, 0, 0, 0, 0],
         [10, 0, 9, 8, 0, 0, 0, 0, 0],
@@ -107,4 +108,4 @@ if __name__ == "__main__":
         [0, 0, 0, 0, 0, 0, 2, 11, 0],
     ]
     print("\nThe spanning tree is: ")
-    prim(Graph, g)
+    prim(Graph)
